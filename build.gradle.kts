@@ -33,6 +33,7 @@ repositories {
 dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.opentest4j)
+    implementation("com.github.weisj:jsvg:1.7.0")
 
     // IntelliJ Platform Gradle Plugin Dependencies Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html
     intellijPlatform {

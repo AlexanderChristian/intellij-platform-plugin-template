@@ -1,12 +1,16 @@
 package org.jetbrains.plugins.template
 
+import com.github.weisj.jsvg.parser.SVGLoader
 import com.intellij.ide.highlighter.XmlFileType
 import com.intellij.openapi.components.service
+import com.intellij.openapi.util.io.FileUtil
 import com.intellij.psi.xml.XmlFile
 import com.intellij.testFramework.TestDataPath
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import com.intellij.util.PsiErrorElementUtil
 import org.jetbrains.plugins.template.services.MyProjectService
+import java.io.ByteArrayInputStream
+import java.io.File
 
 @TestDataPath("\$CONTENT_ROOT/src/test/testData")
 class MyPluginTest : BasePlatformTestCase() {
@@ -36,4 +40,10 @@ class MyPluginTest : BasePlatformTestCase() {
     }
 
     override fun getTestDataPath() = "src/test/testData/rename"
+
+    fun testSvg() {
+        val aFile = File("/Users/hsz/Projects/JetBrains/intellij-platform-plugin-template/src/test/resources/foo.svg")
+        SVGLoader().load(ByteArrayInputStream(FileUtil.loadFileBytes(aFile)))
+        SVGLoader().load(javaClass.getResource("/foo.svg"))!!.viewBox()
+    }
 }
