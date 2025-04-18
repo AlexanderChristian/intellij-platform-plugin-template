@@ -15,4 +15,22 @@
     <applicationListeners>
         <listener class="org.jetbrains.plugins.template.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+
+    <actions>
+        <action id="JumpToFileAction"
+                class="org.jetbrains.plugins.template.actions.JumpToFileAction"
+                text="Jump to File"
+                description="Open a file by name">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt Z"/>
+        </action>
+
+        <action id="com.yourpackage.SelectIndentedBlockAction"
+                class="org.jetbrains.plugins.template.actions.SelectIndentedBlockAction"
+                text="Select Indented Block"
+
+                description="Select from current line to next line with same or less indent">
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt X"/>
+        </action>
+    </actions>
 </idea-plugin>
